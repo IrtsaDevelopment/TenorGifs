@@ -48,7 +48,7 @@ class GifSearch:
 
     def search(self, query: str):
         try:
-            url = 'https://tenor.com/search/' + ('-'.join(query.split(' '))) + '-gifs'
+            url = 'https://tenor.com/search/' + query.replace(' ', '-') + '-gifs'
             information = urlopen(Request(url)).read().decode('utf8')
 
             Gifs = information.split('src="')
